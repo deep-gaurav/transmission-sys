@@ -1,0 +1,42 @@
+[package]
+name = "transmission-sys"
+version = "0.3.2"
+authors = ["Steven vanZyl <rushsteve1@rushsteve1.us>", "Daniel McCrevan <danielmccrevan@gmail.com>"]
+edition = "2018"
+description = "Rust bindings for the Transmission bittorrent client."
+repository = "https://gitlab.com/tornado-torrent/transmission-sys"
+readme = "README.md"
+categories = ["external-ffi-bindings"]
+keywords = ["torrent", "bittorrent", "transmission"]
+license = "MIT"
+include = [
+    "**/*.rs",
+    "Cargo.toml",
+    "wrapper.h",
+    "transmission/CMakeLists.txt",
+    "transmission/cmake/*",
+    "transmission/third-party/*",
+    "transmission/libtransmission/*"
+]
+
+[badges]
+gitlab = { repository = "tornado-torrent/transmission-sys", branch = "master" }
+
+[features]
+docs-only = []
+static = []
+
+[dependencies]
+openssl-sys = "^0.9"
+curl-sys = "^0.4"
+libz-sys = "^1.0"
+libevent-sys = "^0.2"
+
+[build-dependencies]
+bindgen = "^0.45"
+cmake = "^0.1"
+
+[package.metadata.docs.rs]
+features = [ "docs-only" ]
+no-default-features = true
+all-features = false
